@@ -43,20 +43,20 @@ function setup() {
   box11 = new Box(position+250,250,25,60);
 
   //level2 base 1
-  box12 = new Box(position+50,180,25,60);
-  box13 = new Box(position+75,180,25,60);
-  box14 = new Box(position+100,180,25,60);
-  box15 = new Box(position+125,180,25,60);
-  box16 = new Box(position+150,180,25,60);
-  box17 = new Box(position+175,180,25,60);
-  box18 = new Box(position+200,180,25,60);
+  box12 = new Box(position+50,200,25,60);
+  box13 = new Box(position+75,200,25,60);
+  box14 = new Box(position+100,200,25,60);
+  box15 = new Box(position+125,200,25,60);
+  box16 = new Box(position+150,200,25,60);
+  box17 = new Box(position+175,200,25,60);
+  box18 = new Box(position+200,200,25,60);
   
   //level3 base 1
-  box19 = new Box(position+75,100,25,60);
-  box20 = new Box(position+100,100,25,60);
-  box21 = new Box(position+125,100,25,60);
-  box22 = new Box(position+150,100,25,60);
-  box23 = new Box(position+175,100,25,60);
+  box19 = new Box(position+75,150,25,60);
+  box20 = new Box(position+100,150,25,60);
+  box21 = new Box(position+125,150,25,60);
+  box22 = new Box(position+150,150,25,60);
+  box23 = new Box(position+175,150,25,60);
 
 
   block1 = new Box(position2,200,25,60,);
@@ -67,16 +67,16 @@ function setup() {
   block6 = new Box(position2+125,200,25,60);
   block7 = new Box(position2+150,200,25,60);
   //leve2
-  block9 = new Box(position2+25,130,25,60);
-  block10 = new Box(position2+50,130,25,60);
-  block11 = new Box(position2+75,130,25,60);
-  block12 = new Box(position2+100,130,25,60);
-  block13 = new Box(position2+125,130,25,60);
+  block9 = new Box(position2+25,150,25,60);
+  block10 = new Box(position2+50,150,25,60);
+  block11 = new Box(position2+75,150,25,60);
+  block12 = new Box(position2+100,150,25,60);
+  block13 = new Box(position2+125,150,25,60);
   // block14 = new Box(position2+150,130,25,60);
   // level 3
-  block15 = new Box(position2+50,70,25,60);
-  block16 = new Box(position2+75,70,25,60);
-  block17 = new Box(position2+100,70,25,60);
+  block15 = new Box(position2+50,100,25,60);
+  block16 = new Box(position2+75,100,25,60);
+  block17 = new Box(position2+100,100,25,60);
   // block18 = new Box(position2+175,150,25,60);
   // block19 = new Box(position2+175,150,25,60);
 
@@ -87,9 +87,10 @@ function setup() {
     'isStatic': false
 }
 
-  polygon = Bodies.polygon(100, 300,6, 25, options);
+  // polygon = Bodies.polygon(100, 300,6, 25, options);
+  // World.add(world, polygon);
+  polygon = Bodies.circle(75, 200, 10);
   World.add(world, polygon);
-
 
 
   slingShot = new SlingShot(polygon,{x:200, y:250});
@@ -112,7 +113,7 @@ function draw() {
 
   imageMode(CENTER);
   
-  image(polygon_img, polygon.position.x, polygon.position.y, 60,50)
+  image(polygon_img, polygon.position.x, polygon.position.y, 40,40)
 
 
   ground1.display();
@@ -175,4 +176,10 @@ function mouseDragged() {
 function mouseReleased() {
   slingShot.fly();
   message = ""
+}
+
+function keyPressed(){
+  if(keyCode === 32){
+    slingShot.attach(polygon)
+  }
 }

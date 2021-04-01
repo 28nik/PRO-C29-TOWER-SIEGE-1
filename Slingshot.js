@@ -13,6 +13,11 @@ class SlingShot{
     fly() {
         this.SlingShot.bodyA = null;
     }
+
+    attach(body){
+        this.SlingShot.bodyA = body;
+    }
+
       display(){
           if(this.SlingShot.bodyA){
             var pointA = this.SlingShot.bodyA.position;
