@@ -2,7 +2,7 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
-
+var gameState = "a"
 var engine, world;
 var position = 375;
 var position2 = 725;
@@ -169,17 +169,22 @@ function draw() {
 }
 
 function mouseDragged() {
+  if (gameState!=="b"){
   Matter.Body.setPosition(polygon, {x: mouseX, y: mouseY});
-  message = "launch"
+  message = "launch"}
 }
 
 function mouseReleased() {
+  if (gameState!=="b"){
   slingShot.fly();
   message = ""
+    gameState = "b";
+}
 }
 
 function keyPressed(){
   if(keyCode === 32){
     slingShot.attach(polygon)
+    gameState = "a";
   }
 }
